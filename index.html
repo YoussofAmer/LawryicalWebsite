@@ -81,36 +81,6 @@
         </div>
         <!-- Sidebar End -->
 
-        <!--Github Import start-->
-        <body>
-            <ul id="fileList"></ul>
-            <script>
-                const username = 'yourusername';
-                const repository = 'your-repository';
-                const apiUrl = `https://api.github.com/repos/${YoussofAmer}}/${uslmYAmer}/contents`;
-            fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const fileListElement = document.getElementById('fileList');
-                data.forEach(file => {
-                    if (file.type === 'file') {
-            
-                        const listItem = document.createElement('li');
-                        const link = document.createElement('a');
-            
-                        link.textContent = file.name;
-                        link.href = file.html_url;
-                        listItem.appendChild(link);
-                        fileListElement.appendChild(listItem);
-                    }
-                });
-            })
-            .catch(error => {
-
-                console.error('Error:', error);
-            });
-        </script>
-    </body>
 
         <!-- Content Start -->
         <div class="content">
@@ -273,6 +243,37 @@
     <script src="js/main.js"></script>
 </body>
 
+<!--Github Import start-->
+<body>
+    <ul id="fileList"></ul>
+
+  <script>
+    const username = 'YoussofAmer';
+    const repository = 'uslmYAmer';
+    const apiUrl = `https://api.github.com/repos/${username}}/${repository}/contents`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const fileListElement = document.getElementById('fileList');
+
+        data.forEach(file => {
+          if (file.type === 'file') {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.textContent = file.name;
+            link.href = file.html_url;
+            listItem.appendChild(link);
+            fileListElement.appendChild(listItem);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+<!--Github Import start-->
 
 
 </html>
